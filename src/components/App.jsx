@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import FeedbackOptions from './FeedbackOptions';
-import Statistics from './Statistics';
-import Notification from './Notification';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Statistics from './Statistics/Statistics';
+import Notification from './Notification/Notification';
+import css from './Style.module.css'
 
 const App = () => {
   const [feedback, setFeedback] = useState({
@@ -22,8 +23,8 @@ const App = () => {
   const positivePercentage = Math.round((good / total) * 100);
 
   return (
-    <div>
-      <h2>Please leave feedback</h2>
+    <div className={css.section}>
+      <h2 className={css.section}>Please leave feedback</h2>
       <FeedbackOptions options={Object.keys(feedback)} onLeaveFeedback={handleFeedback} />
       <hr />
       {total > 0 ? (
